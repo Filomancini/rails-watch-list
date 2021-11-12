@@ -1,11 +1,57 @@
-<div class="page-header">
-  <h1>Save any kind of movies in your lists</h1>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class="navbar-brand" href="#">
+    <img src="/app/assets/images/popcorn.jpg" width="30" height="30">
+  </a>
+  <a class="navbar-brand" href="#">Movie & Popcorn Time</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<h2>My lists</h2>
-<button type="button" class="btn btn-success float-right"><%= link_to "Create a movie list", new_list_path, :class => "button" %></button>
-
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">My movies</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Movie genres
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Thriller</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Comedy</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Fantasy</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1">Top movies of the week</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<br>
+<div class="card text-center">
+  <div class="card-header">
+    <h1>Home</h1>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Movie List</h4>
+    <p class="card-text">Choose your favourite movies and create your own movie list!</p>
+    <button type="button" class="btn btn-dark">
+<%= link_to "Create movie list", new_list_path, :class => "button" %></button>
+<br>
 <div class="container">
+<br>
   <div class="row row-cols-3">
   <% @lists.each do |list| %>
     <div class="col"><%=  link_to list.name, list_path(list)%></div>
